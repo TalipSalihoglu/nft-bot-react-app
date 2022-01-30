@@ -3,7 +3,12 @@ import { useState } from 'react/cjs/react.development';
 
 const fetcheden = (eden_collection) => {
     return new Promise((resolve) => {
-        fetch('https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/'+eden_collection).then((res) => {
+        fetch('https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/'+eden_collection, {
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin':'*'
+            }
+          }).then((res) => {
             res.json().then((data) => {
                 resolve(data.results.floorPrice);
             }).catch(() => resolve([]));
@@ -19,7 +24,12 @@ function play(){
 const fetcheden2 = (eden_collection) => {
     return new Promise((resolve) => {
         const query = `{"$match":{"collectionSymbol":"${eden_collection}"},"$sort":{"createdAt":-1},"$skip":0,"$limit":2000}`;
-        fetch(`https://api-mainnet.magiceden.io/rpc/getListedNFTsByQuery?q=${query}`).then((res) => {
+        fetch(`https://api-mainnet.magiceden.io/rpc/getListedNFTsByQuery?q=${query}`,{
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin':'*'
+            }
+          }).then((res) => {
             res.json().then((data) => {
                 resolve(data.results);
             }).catch(() => resolve([]));
