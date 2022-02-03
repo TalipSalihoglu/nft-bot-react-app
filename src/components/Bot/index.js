@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
 import Nft from './Nft';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';

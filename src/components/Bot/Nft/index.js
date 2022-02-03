@@ -100,7 +100,7 @@ function Nft({eden_collections,percentageChange}) {
         localStorage.setItem("floorPrice"+eden_collections, 100)
    
        generalAsync(setNftModel,eden_collections,pc)
-    },[])
+    },[percentageChange,eden_collections])
     
   return( 
         <div>
