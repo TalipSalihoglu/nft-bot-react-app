@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const fetcheden = (eden_collection) => {
     return new Promise((resolve) => {
-        fetch(eden_collection, {
+        fetch('https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/'+eden_collection, {
             mode: 'cors',
             headers: {
               'Access-Control-Allow-Origin':'*'
@@ -25,7 +25,11 @@ function play(){
 const fetcheden2 = (eden_collection) => {
     return new Promise((resolve) => {
         const query = `{"$match":{"collectionSymbol":"${eden_collection}"},"$sort":{"createdAt":-1},"$skip":0,"$limit":2000}`;
+<<<<<<< HEAD
         fetch(`getListedNFTsByQuery?q=${query}`,{
+=======
+        fetch(`https://api-mainnet.magiceden.io/rpc/getListedNFTsByQuery?q=${query}`,{
+>>>>>>> parent of 9b94137 (added REACT_APP_API_ENDPOINT)
             mode: 'cors',
             headers: {
               'Access-Control-Allow-Origin':'*'
